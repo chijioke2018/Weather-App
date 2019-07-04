@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Week8GroupWeather</string>
+    <string name="location">Town,Country</string>
+    <string name="btnText">Submit Location</string>
+</resources>
