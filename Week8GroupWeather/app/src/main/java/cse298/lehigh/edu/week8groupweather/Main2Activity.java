@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,12 +21,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Main2Activity extends AppCompatActivity {
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        textView =(TextView)findViewById(R.id.textView);
         SharedPreferences myPreferences;
         myPreferences = this.getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         String location = myPreferences.getString("place", "");
@@ -79,6 +82,7 @@ public class Main2Activity extends AppCompatActivity {
                         JSONObject obj = main.getJSONObject(i);
                         String description = obj.getString("description");
                         Log.i("API result", description);
+                        textView.setText(description);
                     }
 
                 } catch (JSONException e) {
